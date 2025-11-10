@@ -1,122 +1,451 @@
+/* Import Fonts - ADD THIS AT THE TOP */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 
-.dot-grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
+/* ------------------ */
+/*   GLOBAL / BODY    */
+/* ------------------ */
 
-.dot-grid__wrap {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.dot-grid__canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-/* Full-screen blurred background */
 body {
     margin: 0;
     padding: 0;
-    background: url("/static/shadowboard.jpg") no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+    /* Dark Mesh Gradient Background */
+    background: radial-gradient(circle at 20% 20%, rgba(83, 80, 255, 0.15), transparent 45%),
+                radial-gradient(circle at 80% 20%, rgba(63, 74, 90, 0.15), transparent 45%),
+                radial-gradient(circle at 40% 80%, rgba(255, 80, 80, 0.15), transparent 45%),
+                #0d0d0e;
+
+    background-size: 200% 200%;
+    background-attachment: fixed;
+
+    font-family: 'Orbitron', sans-serif; /* Changed to Orbitron for everything */
+    color: #fff;
+
+    animation: moveBackgroundDark 10s linear infinite;
 }
 
-/* Container that wraps the form */
+@keyframes moveBackgroundDark {
+    0% { background-position: 0% 0%, 100% 0%, 50% 100%, 0% 0%; }
+    50% { background-position: 100% 100%, 0% 100%, 50% 0%, 100% 100%; }
+    100% { background-position: 0% 0%, 100% 0%, 50% 100%, 0% 0%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ------------------ */
+/*   FORM CONTAINER   */
+/* ------------------ */
+
 .form-container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 40px 30px;
-    width: 400px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-    color: white;
+    width: 100%;
+    max-width: 350px;
+    padding: 35px 30px 25px;
     text-align: center;
+
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 25px;
+    backdrop-filter: blur(22px) saturate(180%);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25), inset 0 0 30px rgba(255, 255, 255, 0.1);
+
+    animation: fadeIn 0.8s ease;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers all inner elements horizontally */
 }
 
-/* Header inside the form */
-.form-container h2 {
+
+/* ------------------ */
+/*   HEADERS          */
+/* ------------------ */
+
+h2 {
     margin-bottom: 20px;
+    font-size: 1.7rem;
+    font-weight: 600;
 }
 
-/* Input fields */
-input[type="text"] {
-    width: 85%;
+
+/* ------------------ */
+/*    INPUT STYLES    */
+/* ------------------ */
+
+input {
+    width: 90%;
     padding: 12px;
-    margin: 10px 0;
+    margin-bottom: 10px;
+
+    background: rgba(255, 255, 255, 0.22);
     border: none;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    font-size: 16px;
+    border-radius: 14px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.30);
+    color: #fff;
+    font-size: 0.95rem;
     outline: none;
+
+    transition: 0.25s ease;
 }
 
-input[type="text"]::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+input::placeholder {
+    color: rgba(255, 255, 255, 0.65);
 }
 
-/* Submit button */
+input:focus {
+    background: rgba(255, 255, 255, 0.28);
+    transform: scale(1.02);
+}
+
+
+/* ------------------ */
+/*     BUTTON         */
+/* ------------------ */
+
 button {
     width: 40%;
-    padding: 12px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 10px;
-    background-color: rgba(255, 0, 0, 0.5);
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: #fff;
+    border-radius: 16px;
+
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    transition: 0.25s ease;
 }
 
 button:hover {
-    background-color: rgba(255, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.55);
+    transform: scale(1.04);
 }
 
-/* Spotify player styling (optional) */
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* ------------------ */
+/*  SPOTIFY PLAYER    */
+/* ------------------ */
+
 iframe {
-    margin-top: 25px;
-    border-radius: 12px;
+    margin-top: 20px;
+    width: 100%;
+    height: 85px;
+
+    border-radius: 16px !important;
+    border: none;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-/* Loading animation on submit */
-button.loading {
-    position: relative;
-    pointer-events: none;
+
+/* ------------------ */
+/*   POPUP OVERLAY    */
+/* ------------------ */
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 998;
+    animation: fadeIn 0.3s ease;
 }
 
-button.loading::after {
-    content: "";
-    position: absolute;
-    right: 15px;
+.popup-overlay.show {
+    display: block;
+}
+
+
+/* ------------------ */
+/*   POPUP STYLES     */
+/* ------------------ */
+
+.popup {
+    position: fixed;
     top: 50%;
-    width: 16px;
-    height: 16px;
-    margin-top: -8px;
-    border: 2px solid white;
-    border-top: 2px solid transparent;
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    width: 90%;
+    max-width: 350px;
+    padding: 25px 20px;
+
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 24px;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.35);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+
+    z-index: 999;
+    animation: popupFade 0.4s ease;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0); }
-    100% { transform: rotate(360deg); }
+.popup.show {
+    display: flex;
 }
 
+@keyframes popupFade {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.popup h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.popup p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#close-popup {
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.35);
+    border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 14px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: 0.25s ease;
+}
+
+#close-popup:hover {
+    background: rgba(255,255,255,0.55);
+    transform: scale(1.05);
+}
+
+
+/* ------------------ */
+/* SEE ATTENDANCE BTN */
+/* ------------------ */
+
+.top-right-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+
+    padding: 10px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+
+    color: #fff;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.25s ease;
+    z-index: 1000;
+}
+
+.top-right-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 480px) {
+    .top-right-btn {
+        top: 15px;
+        right: 15px;
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+
+/* ------------------ */
+/*   GLITCH EFFECT    */
+/* ------------------ */
+
+.glitch {
+    position: relative;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 3px;
+    display: inline-block;
+}
+
+.glitch:before,
+.glitch:after {
+    display: block;
+    content: attr(data-glitch);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+}
+
+.glitch:before {
+    animation: glitch-color 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: #0ff;
+    z-index: -1;
+}
+
+.glitch:after {
+    animation: glitch-color 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+    color: #ff00ff;
+    z-index: -2;
+}
+
+@keyframes glitch-color {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-3px, 3px);
+    }
+    40% {
+        transform: translate(-3px, -3px);
+    }
+    60% {
+        transform: translate(3px, 3px);
+    }
+    80% {
+        transform: translate(3px, -3px);
+    }
+    to {
+        transform: translate(0);
+    }
+}
+
+
+/* ------------------ */
+/*   TABLE STYLES     */
+/* ------------------ */
+
+#attendanceTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#attendanceTable th, #attendanceTable td {
+    border: 0px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+#attendanceTable th {
+    background-color: #d7d7d73b;
+}
+
+
+/* ------------------ */
+/*   FOOTER WATERMARK */
+/* ------------------ */
+
+.watermark {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 15px 20px;
+    
+    background: rgba(13, 13, 14, 0.24);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 1000;
+}
+
+.watermark p {
+    margin: 3px 0;
+    font-weight: 400;
+}
+
+.made-by {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.github-link:hover {
+    color: #fff;
+    transform: scale(1.15) rotate(5deg);
+}
+
+.github-link svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+@media screen and (max-width: 480px) {
+    .watermark {
+        font-size: 0.75rem;
+        padding: 12px 15px;
+    }
+    
+    .made-by {
+        font-size: 0.7rem;
+        gap: 6px;
+    }
+    
+    .github-link svg {
+        width: 16px;
+        height: 16px;
+    }
+}
