@@ -1,0 +1,122 @@
+
+.dot-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.dot-grid__wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.dot-grid__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Full-screen blurred background */
+body {
+    margin: 0;
+    padding: 0;
+    background: url("/static/shadowboard.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container that wraps the form */
+.form-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 400px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    color: white;
+    text-align: center;
+}
+
+/* Header inside the form */
+.form-container h2 {
+    margin-bottom: 20px;
+}
+
+/* Input fields */
+input[type="text"] {
+    width: 85%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Submit button */
+button {
+    width: 40%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+}
+
+/* Spotify player styling (optional) */
+iframe {
+    margin-top: 25px;
+    border-radius: 12px;
+}
+
+/* Loading animation on submit */
+button.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+button.loading::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    border: 2px solid white;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+}
+
