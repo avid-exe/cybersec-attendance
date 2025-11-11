@@ -120,7 +120,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📞 Support
 
-For issues, questions, or suggestions, please open an issue on the GitHub repository or contact the Cybersecurity Department administration.
+For issues, questions, or suggestions, please contact avid.jys@gmail.com
 
 ## 🙏 Acknowledgments
 
