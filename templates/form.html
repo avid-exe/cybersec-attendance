@@ -112,6 +112,147 @@
 </body>
 </html>
 
+<!--POP UP CLOSE-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Closed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .popup {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            padding: 40px 50px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .icon svg {
+            width: 45px;
+            height: 45px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 8px 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .info-badge:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="popup">
+            <div class="icon">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+            </div>
+            <h1>Attendance Collection Closed🤓</h1>
+            <p>The attendance collection period has ended. No further submissions will be accepted at this time.</p>
+            <a href="https://github.com/avid-exe" target="_blank" class="info-badge">Please contact administration for assistance</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
 
 </body>
 </html>
