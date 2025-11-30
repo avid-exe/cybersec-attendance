@@ -130,4 +130,4 @@ For issues, questions, or suggestions, please contact avid.jys@gmail.com
 
 ---
 
-**Live Application**: [https://cybersec-attendance.onrender.com/](https://cybersec-attendance.onrender.com/)
+
