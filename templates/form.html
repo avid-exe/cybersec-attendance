@@ -28,10 +28,8 @@
         </iframe>
     </div>
 
-    <!-- Popup Overlay -->
     <div id="popup-overlay" class="popup-overlay"></div>
 
-    <!-- Glass Mesh Popup -->
     <div id="popup" class="popup">
         <h3>✅ Attendance Submitted!</h3>
         <p>Your attendance has been recorded successfully.</p>
@@ -40,7 +38,6 @@
 
     <br>
 
-    <!-- Top-Right Button -->
     <a href="https://docs.google.com/spreadsheets/d/1zCLETvfENKZie5lT25p_8dy0Dxck3rqITxyeLl9dU0s/edit?usp=sharing" 
        target="_blank" title="this takes you to attendance page"
        class="top-right-btn">See Attendance List</a>
@@ -53,7 +50,6 @@
             const submitBtn = document.getElementById('submit-btn');
             const btnText = document.getElementById('btnText');
             
-            // Disable button during submission
             submitBtn.disabled = true;
             btnText.textContent = 'Submitting...';
             
@@ -66,11 +62,9 @@
                 const data = await response.json();
                 
                 if (data.status === 'success') {
-                    // Show popup and overlay
                     document.getElementById('popup-overlay').classList.add('show');
                     document.getElementById('popup').classList.add('show');
                     
-                    // Clear form
                     this.reset();
                 } else {
                     alert(data.message);
@@ -84,20 +78,17 @@
             }
         });
 
-        // Close popup
         document.getElementById('close-popup').addEventListener('click', function() {
             document.getElementById('popup').classList.remove('show');
             document.getElementById('popup-overlay').classList.remove('show');
         });
 
-        // Close popup when clicking overlay
         document.getElementById('popup-overlay').addEventListener('click', function() {
             document.getElementById('popup').classList.remove('show');
             document.getElementById('popup-overlay').classList.remove('show');
         });
     </script>
 
-    <!-- Footer Watermark -->
     <footer class="watermark">
         <p>© 2025 CyberSec Attendance. All rights reserved.</p>
         <p class="made-by">
