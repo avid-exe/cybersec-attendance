@@ -1,9 +1,7 @@
 /* Import Fonts - ADD THIS AT THE TOP */
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
 
-/* ------------------ */
-/*   GLOBAL / BODY    */
-/* ------------------ */
+
 
 body {
     margin: 0;
@@ -16,15 +14,16 @@ body {
     flex-direction: column;
 
     /* Dark Mesh Gradient Background */
-    background: radial-gradient(circle at 20% 20%, rgba(83, 80, 255, 0.15), transparent 45%),
-                radial-gradient(circle at 80% 20%, rgba(63, 74, 90, 0.15), transparent 45%),
-                radial-gradient(circle at 40% 80%, rgba(255, 80, 80, 0.15), transparent 45%),
-                #0d0d0e;
+   background: 
+    radial-gradient(circle at 20% 20%, rgba(0, 200, 255, 0.15), transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(0, 255, 180, 0.15), transparent 45%),
+    radial-gradient(circle at 40% 80%, rgba(0, 150, 255, 0.15), transparent 45%),
+    #0d0d0e;
 
     background-size: 200% 200%;
     background-attachment: fixed;
 
-    font-family: 'Orbitron', sans-serif; /* Changed to Orbitron for everything */
+    font-family: 'Orbitron', sans-serif; 
     color: #fff;
 
     animation: moveBackgroundDark 10s linear infinite;
@@ -41,10 +40,6 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-
-/* ------------------ */
-/*   FORM CONTAINER   */
-/* ------------------ */
 
 .form-container {
     width: 100%;
@@ -67,9 +62,6 @@ body {
 }
 
 
-/* ------------------ */
-/*   HEADERS          */
-/* ------------------ */
 
 h2 {
     margin-bottom: 20px;
@@ -78,9 +70,6 @@ h2 {
 }
 
 
-/* ------------------ */
-/*    INPUT STYLES    */
-/* ------------------ */
 
 input {
     width: 90%;
@@ -112,9 +101,6 @@ input:focus {
 }
 
 
-/* ------------------ */
-/*     BUTTON         */
-/* ------------------ */
 
 button {
     width: 40%;
@@ -147,9 +133,7 @@ button:disabled {
 }
 
 
-/* ------------------ */
-/*  SPOTIFY PLAYER    */
-/* ------------------ */
+
 
 iframe {
     margin-top: 20px;
@@ -164,9 +148,6 @@ iframe {
 }
 
 
-/* ------------------ */
-/*   POPUP OVERLAY    */
-/* ------------------ */
 
 .popup-overlay {
     display: none;
@@ -187,9 +168,7 @@ iframe {
 }
 
 
-/* ------------------ */
-/*   POPUP STYLES     */
-/* ------------------ */
+
 
 .popup {
     position: fixed;
@@ -258,9 +237,7 @@ iframe {
 }
 
 
-/* ------------------ */
-/* SEE ATTENDANCE BTN */
-/* ------------------ */
+
 
 .top-right-btn {
     position: absolute;
@@ -302,9 +279,7 @@ iframe {
 }
 
 
-/* ------------------ */
-/*   GLITCH EFFECT    */
-/* ------------------ */
+
 
 .glitch {
     position: relative;
@@ -358,9 +333,7 @@ iframe {
 }
 
 
-/* ------------------ */
-/*   TABLE STYLES     */
-/* ------------------ */
+
 
 #attendanceTable {
     width: 100%;
@@ -379,9 +352,7 @@ iframe {
 }
 
 
-/* ------------------ */
-/*   FOOTER WATERMARK */
-/* ------------------ */
+
 
 .watermark {
     position: fixed;
